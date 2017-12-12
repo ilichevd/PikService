@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B8F96EA1-2286-444A-AF3F-FB5B7AF23194}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{798737D2-3C34-4559-8D2A-B6F1C3F88B91}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccessLevel</RootNamespace>
-    <AssemblyName>DataAccessLevel</AssemblyName>
+    <RootNamespace>BusinessLogic</RootNamespace>
+    <AssemblyName>BusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,20 +32,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,33 +52,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201712111547101_01_InitialModelCreating.cs" />
-    <Compile Include="Migrations\201712111547101_01_InitialModelCreating.Designer.cs">
-      <DependentUpon>201712111547101_01_InitialModelCreating.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\BaseEntity.cs" />
-    <Compile Include="Models\Catalog.cs" />
-    <Compile Include="Models\PikDbContext.cs" />
-    <Compile Include="Models\Task.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="DataTransferObjects\BaseDto.cs" />
+    <Compile Include="DataTransferObjects\CatalogDto.cs" />
+    <Compile Include="DataTransferObjects\TaskDto.cs" />
+    <Compile Include="DataTransferObjects\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IBaseRepository.cs" />
-    <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Services\TaskService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\CatalogService.cs" />
+    <Compile Include="Services\Interfaces\ICatalogService.cs" />
+    <Compile Include="Services\Interfaces\IUserService.cs" />
+    <Compile Include="Services\Interfaces\ITaskService.cs" />
+    <Compile Include="ServiceFactory\IServiceFactory.cs" />
+    <Compile Include="ServiceFactory\ServiceFactory.cs" />
+    <Compile Include="Services\Interfaces\_IService.cs" />
+    <Compile Include="Services\_Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712111547101_01_InitialModelCreating.resx">
-      <DependentUpon>201712111547101_01_InitialModelCreating.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\DataAccessLevel\DataAccessLevel.csproj">
+      <Project>{b8f96ea1-2286-444a-af3f-fb5b7af23194}</Project>
+      <Name>DataAccessLevel</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

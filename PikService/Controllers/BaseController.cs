@@ -1,4 +1,5 @@
-﻿using DataAccessLevel.UnitOfWork.Interfaces;
+﻿using BusinessLogic.ServiceFactory;
+using DataAccessLevel.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,17 @@ namespace PikService.Controllers
     public class BaseController : ApiController
     {
         /// <summary>
-        /// Объект для работы с базой данных
+        /// Объект для работы с сервисами
         /// </summary>
-        protected IUnitOfWork uow { get; private set; }
+        protected IServiceFactory _serviceFactory;
 
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="unitOfWork"></param>
-        protected BaseController(IUnitOfWork unitOfWork)
+        /// <param name="serviceFactory"></param>
+        protected BaseController(IServiceFactory serviceFactory)
         {
-            uow = unitOfWork;
+            _serviceFactory = serviceFactory;
         }
     }
 }

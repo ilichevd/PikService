@@ -10,7 +10,7 @@ namespace DataAccessLevel.Models
     /// <summary>
     /// Каталог задач
     /// </summary>
-    public class Catalog
+    public class Catalog : BaseEntity
     {
         public Catalog()
         {

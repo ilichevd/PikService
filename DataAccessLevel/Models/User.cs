@@ -6,7 +6,7 @@ namespace DataAccessLevel.Models
     /// <summary>
     /// Пользователь
     /// </summary>
-    public class User
+    public class User : BaseEntity
     {
         public User()
         {

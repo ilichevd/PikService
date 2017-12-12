@@ -1,47 +1,52 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
-namespace DataAccessLevel.Models
+namespace BusinessLogic.DataTransferObjects
 {
     /// <summary>
     /// Задача
     /// </summary>
-    public class Task : BaseEntity
+    public class TaskDto : BaseDto
     {
         /// <summary>
-        /// Ключ таблицы
+        /// Id задачи в сервисе
         /// </summary>
-        [Key]
+        [IgnoreDataMember]
         public int TaskId { get; set; }
 
         /// <summary>
         /// Название
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
         /// Дата
         /// </summary>
+        [Required]
         public DateTime Date { get; set; }
-
-        /// <summary>
-        /// FK на пользователя
-        /// </summary>
-        public int UserId { get; set; }
-
-        /// <summary>
-        /// FK на каталог
-        /// </summary>
-        public int CatalogId { get; set; }
 
         /// <summary>
         /// Ответственный
         /// </summary>
-        public virtual User User { get; set; }
+        public string UserName { get; set; }
 
         /// <summary>
         /// Каталог
         /// </summary>
-        public virtual Catalog Catalog { get; set; }
+        public string CatalogName { get; set; }
+
+        /// <summary>
+        /// Id каталога в сервисе
+        /// </summary>
+        [IgnoreDataMember]
+        public int CatalogId { get; set; }
+
+        /// <summary>
+        /// Id ответственного
+        /// </summary>
+        [IgnoreDataMember]
+        public int UserId { get; set; }
     }
 }

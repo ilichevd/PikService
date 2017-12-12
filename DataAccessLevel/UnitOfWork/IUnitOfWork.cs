@@ -1,11 +1,11 @@
-﻿using DataAccessLevel.Repositories.Interfaces;
+﻿using DataAccessLevel.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLevel.UnitOfWork.Interfaces
+namespace DataAccessLevel.UnitOfWork
 {
     public interface IUnitOfWork
     {

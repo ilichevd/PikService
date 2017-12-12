@@ -12,6 +12,7 @@ namespace PikService
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            App_Start.AutoMapperConfig.Initialize();
         }
     }
 }

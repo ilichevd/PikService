@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLevel.Models;
 using DataAccessLevel.Repositories;
-using DataAccessLevel.Repositories.Interfaces;
-using DataAccessLevel.UnitOfWork.Interfaces;
 
 namespace DataAccessLevel.UnitOfWork
 {

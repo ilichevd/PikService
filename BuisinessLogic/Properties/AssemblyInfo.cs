@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ClassLibrary1")]
+[assembly: AssemblyTitle("BusinessLogic")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Danfoss")]
-[assembly: AssemblyProduct("ClassLibrary1")]
+[assembly: AssemblyProduct("BusinessLogic")]
 [assembly: AssemblyCopyright("Copyright © Danfoss 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("aa2e8635-eb6b-4d0d-ab3e-c02c178108da")]
+[assembly: Guid("798737d2-3c34-4559-8d2a-b6f1c3f88b91")]
 
 // Version information for an assembly consists of the following four values:
 //

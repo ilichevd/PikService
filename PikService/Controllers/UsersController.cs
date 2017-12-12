@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,49 +14,50 @@ using System.Threading.Tasks;
 
 namespace PikService.Controllers
 {
-    public class CatalogsController : BaseController
+    public class UsersController : BaseController
     {
-        public CatalogsController(IServiceFactory serviceFactory) : base(serviceFactory)
+        public UsersController(IServiceFactory serviceFactory) : base(serviceFactory)
         {
             _serviceFactory = serviceFactory;
         }
 
         [AllowAnonymous]
-        // GET: api/Catalogs
-        public async Task<IEnumerable<CatalogDto>> GetCatalogs()
+        // GET: api/Users
+        public async Task<IEnumerable<UserDto>> GetUsers()
         {
-            var result = await _serviceFactory.GetCatalogService().GetAllAsync();
+            var result = await _serviceFactory.GetUserService().GetAllAsync();
             return result;
         }
-/*
-        // GET: api/Catalogs/5
-        [ResponseType(typeof(CatalogDto))]
-        public IHttpActionResult GetCatalog(int id)
+
+        /*
+        // GET: api/Users/5
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult GetUser(int id)
         {
-            CatalogDto catalog = db.catalogs.Find(id);
-            if (catalog == null)
+            UserDto user = db.users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(catalog);
+            return Ok(user);
         }
 
-        // PUT: api/Catalogs/5
+        // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCatalog(int id, CatalogDto catalog)
+        public IHttpActionResult PutUser(int id, UserDto user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != catalog.CatalogId)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
 
-            db.Entry(catalog).State = EntityState.Modified;
+            db.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -62,7 +65,7 @@ namespace PikService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CatalogExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -75,35 +78,35 @@ namespace PikService.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Catalogs
-        [ResponseType(typeof(CatalogDto))]
-        public IHttpActionResult PostCatalog(CatalogDto catalog)
+        // POST: api/Users
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult PostUser(UserDto user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.catalogs.Add(catalog);
+            db.users.Add(user);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = catalog.CatalogId }, catalog);
+            return CreatedAtRoute("DefaultApi", new { id = user.UserId }, user);
         }
 
-        // DELETE: api/Catalogs/5
-        [ResponseType(typeof(CatalogDto))]
-        public IHttpActionResult DeleteCatalog(int id)
+        // DELETE: api/Users/5
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult DeleteUser(int id)
         {
-            CatalogDto catalog = db.catalogs.Find(id);
-            if (catalog == null)
+            UserDto user = db.users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            db.catalogs.Remove(catalog);
+            db.users.Remove(user);
             db.SaveChanges();
 
-            return Ok(catalog);
+            return Ok(user);
         }
 
         protected override void Dispose(bool disposing)
@@ -115,9 +118,10 @@ namespace PikService.Controllers
             base.Dispose(disposing);
         }
 
-        private bool CatalogExists(int id)
+        private bool UserExists(int id)
         {
-            return db.catalogs.Count(e => e.CatalogId == id) > 0;
-        }*/
+            return db.users.Count(e => e.UserId == id) > 0;
+        }
+        */
     }
 }
